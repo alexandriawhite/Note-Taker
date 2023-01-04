@@ -1,22 +1,17 @@
 // Example from 26-Stu_Heroku - need to modify but using as example for now
-// const express = require('express');
-// const path = require('path');
-// const { clog } = require('./middleware/clog');
-// const api = require('./routes/index.js');
+const express = require('express');
+const notes = require('./routes/notes.js');
+const index = require('./routes/index.js');
 
-// const PORT = 3001;
+const PORT = 3001;
+const app = express();
 
-// const app = express();
-
-// // Import custom middleware, "cLog"
-// app.use(clog);
-
-// // Middleware for parsing JSON and urlencoded form data
-// app.use(express.json());
-// app.use(express.urlencoded({ extended: true }));
-// app.use('/api', api);
-
-// app.use(express.static('public'));
+// Middleware for parsing JSON and urlencoded form data
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use('/index', index);
+app.use('/notes', notes);
+app.use(express.static('public'));
 
 // // GET Route for homepage
 // app.get('/', (req, res) =>
@@ -28,6 +23,6 @@
 //   res.sendFile(path.join(__dirname, '/public/pages/feedback.html'))
 // );
 
-// app.listen(PORT, () =>
-//   console.log(`App listening at http://localhost:${PORT} 🚀`)
-// );
+app.listen(PORT, () =>
+  console.log(`App listening at http://localhost:${PORT} 🚀`)
+);
