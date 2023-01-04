@@ -1,6 +1,18 @@
 [
     {
-        "title":"Test Title",
-        "text":"Test text"
+        "title":"Sprint Demo",
+        "text":"11:00am - 12:00pm"
+    },
+    {
+        "title":"Standup Meeting",
+        "text":"1:00pm - 1:30pm"
+    },
+    {
+        "title":"Retro",
+        "text":"2:00pm - 3:00pm"
+    },
+    {
+        "title":"Intern Interview",
+        "text":"3:30pm - 4:00pm"
     }
 ]
