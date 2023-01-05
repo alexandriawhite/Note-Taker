@@ -1,8 +1,8 @@
 // Example from 26-Stu_Heroku - need to modify but using as example for now
 const express = require('express');
 const path = require('path');
-// const notes = require('./routes/notes.js');
-// const index = require('./routes/index.js');
+const htmlRoutes = require('./routes/htmlRoutes.js');
+const apiRoutes = require('./routes/apiRoutes.js');
 
 const PORT = 3001;
 const app = express();
@@ -10,19 +10,9 @@ const app = express();
 // Middleware for parsing JSON and urlencoded form data
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-// app.use('/index', index);
-// app.use('/notes', notes);
 app.use(express.static('public'));
-
-// // GET Route for homepage
-app.get('/', (req, res) =>
-  res.sendFile(path.join(__dirname, '/public/index.html'))
-);
-
-app.get('/notes', (req, res) => {
-  res.sendFile(path.join(__dirname, '/public/notes.html'));
-}
-);
+app.use('/api', apiRoutes);
+app.use('/', htmlRoutes);
 
 // // GET Route for feedback page
 // app.get('/feedback', (req, res) =>
