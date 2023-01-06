@@ -16,6 +16,7 @@ This application serves as a note taker that can be used to write and save notes
 
 
 ## Preview
+![Deployed](https://user-images.githubusercontent.com/114960634/210931588-bf9f97f6-d572-4141-97b5-8bdb326965ec.png)
 
 
 ## License
