@@ -25,8 +25,9 @@ router.post('/notes', (req, res) => {
 });
 
 
-router.delete('/api/notes/:id', function (req, res) {
+router.delete('/notes/:id', function (req, res) {
     var id = req.params.id;
+    console.log(id, "id")
     // for (var i = 0; i < dbData.length; i++) {
     //     if (dbData[i].id === id) {
     //         dbData.splice(i, 1);
@@ -36,21 +37,24 @@ router.delete('/api/notes/:id', function (req, res) {
     //         dbData.splice(index, 1);
     //     }
     // })
-    fs.readFile('./db/db.json','utf8', (err, data) =>{
-        if (err) throw err;
+    fs.readFile('db/db.json','utf8', (err, data) =>{
+        if (err) {throw err};
         // console.log(dbData);
         let parseData = JSON.parse(data)
-        let filterData = parseData.filter(entry => {
-            entry.id != id
-            console.log(entry.id)
-            console.log(id)
+        const filterData = parseData.filter(entry => entry.id !== id)
+            // console.log(id,"id inside filterData")
+            // entry.id !== id
+            // console.log(entry.id)
+            // console.log(id)
+              fs.writeFile('db/db.json', JSON.stringify(filterData), function (err) {
+            if (err) console.log(err);
+            else {
+                console.log("Note deleted!");
+                res.json(filterData);
+            }
         })
-        fs.writeFile('./db/db.json', JSON.stringify(filterData, null, 2), function (err) {
-            if (err) throw err;
-            res.json(dbData);
         })
+      
     })
-
-})
 
 module.exports = router
