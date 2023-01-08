@@ -1,1 +1,23 @@
-[{"title":"h","text":"h","id":"1a5206e7-59a7-42b0-b8fb-4804cf932f6e"},{"title":"t","text":"t","id":"e9b5de7f-fded-4da4-8be3-bc4447ac2871"},{"title":"h","text":"h","id":"a3291f14-e81e-462d-add8-5f5e18d45a2e"}]
+[
+    {
+        "title":"Sprint Demo",
+        "text":"11:00am - 12:00pm",
+        "id": "001"
+        
+    },
+    {
+        "title":"Standup Meeting",
+        "text":"1:00pm - 1:30pm",
+        "id": "002"
+    },
+    {
+        "title":"Retro",
+        "text":"2:00pm - 3:00pm",
+        "id": "003"
+    },
+    {
+        "title":"Intern Interview",
+        "text":"3:30pm - 4:00pm",
+        "id": "004"
+    }
+]
