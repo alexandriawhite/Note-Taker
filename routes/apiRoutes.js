@@ -4,7 +4,12 @@ let dbData = require('../db/db.json');
 const fs = require('fs');
 const { v4: uuidv4 } = require('uuid');
 
-router.get('/notes', (req, res) => res.json(dbData));
+router.get('/notes', (req, res) => {
+    fs.readFile('db/db.json','utf8', (err, data) => {
+        let parseData = JSON.parse(data)
+    res.json(parseData)
+    });
+});
 
 router.post('/notes', (req, res) => {
     let id = uuidv4();
